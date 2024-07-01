@@ -57,5 +57,11 @@ class HomeActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        binding.checkgrades.setOnClickListener {
+            val intent = Intent(this@HomeActivity, GradesActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }

@@ -4,6 +4,8 @@ import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
+import com.example.graduationproject.data.Course
+import com.example.graduationproject.data.Student
 import com.example.graduationproject.database.DatabaseHelper.Companion.COLUMN_GRADE_COURSE_ID
 import com.example.graduationproject.database.DatabaseHelper.Companion.COLUMN_GRADE_COURSE_NAME
 import com.example.graduationproject.database.DatabaseHelper.Companion.COLUMN_GRADE_GRADE
@@ -74,4 +76,68 @@ class DatabaseManager(context: Context) {
         }
         return db.insert(TABLE_GRADE, null, values)
     }
+
+    fun getAllStudents(): List<Student> {
+        val students = mutableListOf<Student>()
+        val db = dbHelper.readableDatabase
+        val query = "SELECT * FROM ${DatabaseHelper.TABLE_GRADE} ORDER BY ${DatabaseHelper.COLUMN_GRADE_STUDENT_ID}"
+
+        db.rawQuery(query, null).use { cursor ->
+            var currentStudentId: String? = null
+            var currentStudentName: String? = null
+            var courses = mutableListOf<Course>()
+
+            while (cursor.moveToNext()) {
+                val studentIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_GRADE_STUDENT_ID)
+                val studentNameIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_GRADE_STUDENT_NAME)
+
+                // Check if columns exist
+                if (studentIdIndex == -1 || studentNameIndex == -1) {
+                    // Handle error or skip this row
+                    continue
+                }
+
+                val studentId = cursor.getString(studentIdIndex)
+                val studentName = cursor.getString(studentNameIndex)
+
+                if (studentId != currentStudentId) {
+                    // New student encountered, save previous student data
+                    if (currentStudentId != null) {
+                        students.add(Student(currentStudentId, currentStudentName ?: "", courses.toList()))
+                    }
+
+                    // Reset for new student
+                    currentStudentId = studentId
+                    currentStudentName = studentName
+                    courses = mutableListOf()
+                }
+
+                // Retrieve course details
+                val courseIdIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_GRADE_COURSE_ID)
+                val courseNameIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_GRADE_COURSE_NAME)
+                val gradeIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_GRADE_GRADE)
+
+                // Check if columns exist
+                if (courseIdIndex == -1 || courseNameIndex == -1 || gradeIndex == -1) {
+                    // Handle error or skip this row
+                    continue
+                }
+
+                val courseId = cursor.getString(courseIdIndex)
+                val courseName = cursor.getString(courseNameIndex)
+                val grade = cursor.getString(gradeIndex)
+
+                courses.add(Course(courseId, courseName, grade))
+            }
+
+            // Add the last student to the list
+            if (currentStudentId != null) {
+                students.add(Student(currentStudentId, currentStudentName ?: "", courses.toList()))
+            }
+        }
+
+        return students
+    }
+
+
 }
