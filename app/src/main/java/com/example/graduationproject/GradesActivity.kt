@@ -21,7 +21,7 @@ class GradesActivity : AppCompatActivity() {
         binding = ActivityGradesBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        enableEdgeToEdge()
+
 
         // Initialize DatabaseManager
         dbManager = DatabaseManager(this)
@@ -32,6 +32,7 @@ class GradesActivity : AppCompatActivity() {
         // Initialize and set adapter (can be empty for now)
         studentAdapter = StudentAdapter(emptyList())
         binding.recyclerView.adapter = studentAdapter
+
 
         // Fetch students from database
         fetchStudentsFromDatabase()
