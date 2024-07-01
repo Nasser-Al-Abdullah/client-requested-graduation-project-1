@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    tools:context=".HomeActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/top_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/buttonSignOut"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/baseline_logout_24"
+        android:text="Sign Out"
+        android:tint="#D8E2D8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Page"
+        android:textColor="#ffffff"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/imageView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="32dp">
+
+            <TextView
+                android:id="@+id/textViewStudentName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Name"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextStudentName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#707070"
+                android:ems="10"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="Enter Student Name" />
+
+            <TextView
+                android:id="@+id/textViewStudentId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Student Id"
+                android:layout_marginTop="32dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextStudentId"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#707070"
+                android:ems="10"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="Enter Student Id" />
+
+            <TextView
+                android:id="@+id/textViewCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Course Name"
+                android:layout_marginTop="32dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#707070"
+                android:ems="10"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="Enter Course Name" />
+
+            <TextView
+                android:id="@+id/textViewCourseId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Course Id"
+                android:layout_marginTop="32dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextCourseId"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#707070"
+                android:ems="10"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="Enter Course Id" />
+
+            <TextView
+                android:id="@+id/textViewGrade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Grade"
+                android:layout_marginTop="32dp"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextGrade"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:textSize="18sp"
+                android:padding="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="#707070"
+                android:ems="10"
+                android:background="@drawable/edittext_background"
+                android:inputType="text"
+                android:hint="Enter Grade" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:text="Add"
+                android:layout_marginTop="32dp"
+                android:background="@drawable/button_background"
+                style="@android:style/Widget.Button"
+                android:textColor="#ffffff"
+                android:textSize="25sp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

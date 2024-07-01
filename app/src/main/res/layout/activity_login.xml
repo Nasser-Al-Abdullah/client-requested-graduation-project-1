@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F2F2F2"
+    tools:context=".LoginActivity" >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/top_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hi, \n Please Login"
+        android:textColor="#ffffff"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:orientation="vertical"
+        android:padding="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView">
+
+        <TextView
+            android:id="@+id/textViewEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/editTextEmail"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#707070"
+            android:ems="10"
+            android:background="@drawable/edittext_background"
+            android:inputType="text"
+            android:hint="Enter Your Email" />
+
+        <TextView
+            android:id="@+id/textViewPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_marginTop="32dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:id="@+id/editTextPassword"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:textColor="#707070"
+            android:ems="10"
+            android:background="@drawable/edittext_background"
+            android:inputType="textPassword"
+            android:hint="Enter Your Password" />
+
+        <CheckBox
+            android:id="@+id/checkBoxKeepSignedIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keep me signed in"
+            android:layout_marginTop="16dp"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:text="Login"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/button_background"
+            style="@android:style/Widget.Button"
+            android:textColor="#ffffff"
+            android:textSize="25sp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/redirectToSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Don't have an account? Register Here!"
+            android:layout_marginTop="32dp"/>
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
