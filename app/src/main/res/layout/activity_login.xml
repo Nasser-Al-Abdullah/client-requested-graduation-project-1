@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hi, \n Please Login"
+        android:text="@string/login_header"
         android:textColor="#ffffff"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"

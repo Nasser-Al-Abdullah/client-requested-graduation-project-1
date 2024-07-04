@@ -1,11 +1,11 @@
 package com.example.graduationproject
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import com.example.graduationproject.database.DatabaseManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.graduationproject.data.Student
-import com.example.graduationproject.database.DatabaseManager
 import com.example.graduationproject.databinding.ActivityGradesBinding
 import com.example.graduationproject.utility.StudentAdapter
 
@@ -25,7 +25,6 @@ class GradesActivity : AppCompatActivity() {
 
         // Initialize DatabaseManager
         dbManager = DatabaseManager(this)
-
         // Initialize RecyclerView
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -36,6 +35,12 @@ class GradesActivity : AppCompatActivity() {
 
         // Fetch students from database
         fetchStudentsFromDatabase()
+
+        binding.buttonSignOut.setOnClickListener {
+            val intent = Intent(this@GradesActivity, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun fetchStudentsFromDatabase() {
